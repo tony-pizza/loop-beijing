@@ -71,7 +71,8 @@ class Phone < Sinatra::Application
   end
 
   post :line do
-    if params[:Digits] == '*'
+    if params[:Digits] == '9'
+      logger.info 'redirecting to :new'
       redirect path_to(:new).with(params[:line])
     elsif Recording.exists_for_bus?(params[:line])
       redirect path_to(:first).with(params[:line])
