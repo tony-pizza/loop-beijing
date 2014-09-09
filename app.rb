@@ -37,7 +37,7 @@ class Phone < Sinatra::Application
 
   before do
     content_type :xml
-    puts "params: #{params.inspect}"
+    logger.info "Params: #{params}"
   end
 
   # main menu
@@ -96,7 +96,6 @@ class Phone < Sinatra::Application
   end
 
   post :create do
-    puts params.inspect
     redirect path_to(:menu)
   end
 end
