@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: loop
+  username: <%= ENV['USER'] %>
+  password:
+  pool: 5
+  host: localhost
+
+production:
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>

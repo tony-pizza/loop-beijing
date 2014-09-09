@@ -1,0 +1,5 @@
+doctype xml
+Response
+  Gather method="POST" action=path_to(:play).with(recording.bus, recording.id) numDigits="1"
+    Play = recording.url
+  Redirect = path_to(:next).with(recording.bus, recording.id)

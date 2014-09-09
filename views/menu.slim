@@ -1,0 +1,8 @@
+doctype xml
+Response
+  Gather method="POST" action=path_to(:main) numDigits="1"
+    Say To listen to 1 press 1.
+    Say To listen to 2 press 2.
+    Say To record your own press 3.
+  Say Sorry, I didn't get that.
+  Redirect = path_to(:main)
