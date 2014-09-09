@@ -66,12 +66,11 @@ class Phone < Sinatra::Application
   end
 
   get :next do
-    next = Recording.next(params[:line], params[:id])
-    if !next.nil?
-      redirect path_to(:play).with(params[:line], next.id)
-    else
-      redirect path_to(:line).with(params[:line])
-    end
+    # if next = Recording.next(params[:line], params[:id])
+    #   redirect path_to(:play).with(params[:line], next.id)
+    # else
+    #   redirect path_to(:line).with(params[:line])
+    # end
   end
 
   get :prev do
