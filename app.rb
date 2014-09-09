@@ -46,7 +46,7 @@ class Phone < Sinatra::Application
 
   # interpret main menu input
   post :main do
-    redirect path_to(:line).with(params[:digits])
+    redirect path_to(:line).with(params[:Digits])
   end
 
   get :line do
@@ -70,7 +70,7 @@ class Phone < Sinatra::Application
   end
 
   post :line do
-    if params[:digits] == '*'
+    if params[:Digits] == '*'
       redirect path_to(:new).with(params[:line])
     elsif Recording.exists_for_bus?(params[:line])
       redirect path_to(:first).with(params[:line])
@@ -80,7 +80,7 @@ class Phone < Sinatra::Application
   end
 
   post :play do
-    redirect case params[:digits]
+    redirect case params[:Digits]
       when '1'
         redirect path_to(:prev).with(params[:line], params[:id])
       when '2'
