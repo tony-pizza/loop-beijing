@@ -5,20 +5,20 @@ require 'slim'
 
 class Recording < ActiveRecord::Base
   def self.nearest(line, id = nil)
-    return where(line: line).first if id.nil?
-    where(id: id, line: line).first || where(line: line).first
+    return where(bus: line).first if id.nil?
+    where(id: id, bus: line).first || where(bus: line).first
   end
 
   def self.next(line, id)
-    where(id: id, line: line).offset(1).first
+    where(id: id, bus: line).offset(1).first
   end
 
   def self.prev(line, id)
-    where(id: id, line: line).offset(-1).first
+    where(id: id, bus: line).offset(-1).first
   end
 
   def self.exists_for_bus?(line)
-    where(line: line).exists?
+    where(bus: line).exists?
   end
 end
 
