@@ -28,12 +28,12 @@ class Phone < Sinatra::Application
 
   paths main:   '/phone/main',
         line:   '/phone/bus/:line',
-        first:  '/phone/bus/:line/recordings/first',
+        first:  '/phone/bus/:line/play',
+        new:    '/phone/bus/:line/record',
         play:   '/phone/bus/:line/recordings/:id',
         next:   '/phone/bus/:line/recordings/:id/next',
         prev:   '/phone/bus/:line/recordings/:id/previous',
-        create: '/phone/bus/:line/recordings',
-        new:    '/phone/bus/:line/recordings/new'
+        create: '/phone/bus/:line/recordings'
 
   before do
     content_type :xml
