@@ -8,4 +8,4 @@ Response
     - else
       Say Bus number #{params[:line]} has no recordings yet
     Say To record your own for this bus press 9
-  Redirect = has_recordings ? path_to(:first).with(params[:line]) : path_to(:line).with(params[:line])
+  Redirect method="GET" = has_recordings ? path_to(:first).with(params[:line]) : path_to(:line).with(params[:line])
