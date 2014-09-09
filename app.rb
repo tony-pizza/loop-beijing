@@ -5,16 +5,16 @@ require 'slim'
 
 class Recording < ActiveRecord::Base
   def self.nearest(line, id = nil)
-    return where(bus: line).first if id.nil?
-    where(id: id, bus: line).first || where(bus: line).first
+    return where(bus: line).last if id.nil?
+    where(id: id, bus: line).last || where(bus: line).last
   end
 
   def self.next(line, id)
-    where(id: id, bus: line).offset(1).first
+    where(bus: line).where('created_at < ?', find(id).created_at).last
   end
 
   def self.prev(line, id)
-    where(id: id, bus: line).offset(-1).first
+    where(bus: line).where('created_at > ?', find(id).created_at).first
   end
 
   def self.exists_for_bus?(line)
@@ -62,7 +62,7 @@ class Phone < Sinatra::Application
   end
 
   get :first do
-    redirect path_to(:play).with(params[:line], Recording.where(bus: params[:line]).first.id)
+    redirect path_to(:play).with(params[:line], Recording.where(bus: params[:line]).last.id)
   end
 
   get :next do
