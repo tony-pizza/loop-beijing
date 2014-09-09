@@ -87,11 +87,13 @@ class Phone < Sinatra::Application
   post :play do
     redirect case params[:Digits]
       when '1'
-        redirect path_to(:prev).with(params[:line], params[:id])
+        path_to(:prev).with(params[:line], params[:id])
       when '2'
-        redirect path_to(:next).with(params[:line], params[:id])
+        path_to(:next).with(params[:line], params[:id])
       when '9'
-        redirect path_to(:new).with(params[:line])
+        path_to(:new).with(params[:line])
+      else
+        path_to(:play).with(params[:line], params[:id])
       end
   end
 
@@ -100,7 +102,7 @@ class Phone < Sinatra::Application
   end
 
   post :create do
-    Recording.create(bus: params[:line], url: params[:RecordingUrl])
+    Recording.create!(bus: params[:line], url: params[:RecordingUrl])
     redirect path_to(:main)
   end
 end
