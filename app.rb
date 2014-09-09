@@ -90,7 +90,7 @@ class Phone < Sinatra::Application
         redirect path_to(:prev).with(params[:line], params[:id])
       when '2'
         redirect path_to(:next).with(params[:line], params[:id])
-      when '*'
+      when '9'
         redirect path_to(:new).with(params[:line])
       end
   end
