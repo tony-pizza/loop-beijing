@@ -37,6 +37,7 @@ class Phone < Sinatra::Application
 
   before do
     content_type :xml
+    puts "params: #{params.inspect}"
   end
 
   # main menu
