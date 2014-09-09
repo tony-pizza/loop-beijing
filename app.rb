@@ -16,6 +16,10 @@ class Recording < ActiveRecord::Base
   def self.prev(line, id)
     where(id: id, line: line).offset(-1).first
   end
+
+  def self.exists_for_bus?(line)
+    where(line: line).exists?
+  end
 end
 
 class Phone < Sinatra::Application
@@ -42,51 +46,52 @@ class Phone < Sinatra::Application
 
   # interpret main menu input
   post :main do
-    redirect case params[:digits]
-      when 1
-       '/phone/bus/1.xml'
-      when 2
-       '/phone/bus/1.xml'
-      when 3
-       '/phone/record.xml'
-      end
+    redirect path_to(:line).with(params[:digits])
   end
 
   get :line do
-    slim :bus, locals: { line: params[:line] }
+    slim :bus, locals: { has_recordings: Recording.exists_for_bus?(params[:line]) }
   end
 
   get :play do
-    slim :play, locals: {
-      recording: Recording.where(id: params[:id], line: params[:line]).first || Recording.where(line: params[:line]).first
-
-    }
+    slim :play, locals: { recording: Recording.nearest(params[:id], params[:line]) }
   end
 
   get :first do
-    redirect "/play/#{Recording.find(params[:id]).next.id}.xml"
+    redirect path_to(:play).with(params[:line], Recording.where(bus: params[:line]).first.id)
   end
 
   get :next do
-    redirect "/play/#{Recording.find(params[:id]).next.id}.xml"
+    redirect path_to(:play).with(params[:line], Recording.next(params[:line], params[:id]))
   end
 
   get :prev do
+    redirect path_to(:play).with(params[:line], Recording.prev(params[:line], params[:id]))
+  end
+
+  post :line do
+    if params[:digits] == '*'
+      redirect path_to(:new).with(params[:line])
+    elsif Recording.exists_for_bus?(params[:line])
+      redirect path_to(:first).with(params[:line])
+    else
+      redirect path_to(:line).with(params[:line])
+    end
   end
 
   post :play do
     redirect case params[:digits]
-      when 1
-        redirect path_to(:prev).with(params[:id])
-      when 2
-        redirect path_to(:next).with(params[:id])
-      when 3
-        redirect path_to(:main)
+      when '1'
+        redirect path_to(:prev).with(params[:line], params[:id])
+      when '2'
+        redirect path_to(:next).with(params[:line], params[:id])
+      when '*'
+        redirect path_to(:new).with(params[:line])
       end
   end
 
   get :new do
-    slim :record
+    slim :new
   end
 
   post :create do
