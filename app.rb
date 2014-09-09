@@ -37,6 +37,9 @@ class Phone < Sinatra::Application
 
   before do
     content_type :xml
+  end
+
+  after do
     logger.info "Params: #{params}"
   end
 
@@ -55,7 +58,7 @@ class Phone < Sinatra::Application
   end
 
   get :play do
-    slim :play, locals: { recording: Recording.nearest(params[:id], params[:line]) }
+    slim :play, locals: { recording: Recording.nearest(params[:line], params[:id]) }
   end
 
   get :first do
