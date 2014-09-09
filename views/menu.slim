@@ -1,6 +1,6 @@
 doctype xml
 Response
-  Gather method="POST" action=path_to(:main) numDigits="1" timeout="10" finishOnKey="#"
-    Say Enter your bus number followed by the pound key
+  Gather method="POST" action=path_to(:main) numDigits="3" timeout="10" finishOnKey="#"
+    Say Enter your bus number
   Say Sorry, I didn't get that.
   Redirect = path_to(:main)
