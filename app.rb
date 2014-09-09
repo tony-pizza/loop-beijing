@@ -66,16 +66,19 @@ class Phone < Sinatra::Application
   end
 
   get :next do
-    redirect path_to(:play).with(params[:line], Recording.next(params[:line], params[:id]))
+    if next = Recording.next(params[:line], params[:id])
+      redirect path_to(:play).with(params[:line], next.id)
+    else
+      redirect path_to(:line).with(params[:line])
+    end
   end
 
   get :prev do
-    redirect path_to(:play).with(params[:line], Recording.prev(params[:line], params[:id]))
+    redirect path_to(:play).with(params[:line], Recording.prev(params[:line], params[:id]).id)
   end
 
   post :line do
     if params[:Digits] == '9'
-      logger.info 'redirecting to :new'
       redirect path_to(:new).with(params[:line])
     elsif Recording.exists_for_bus?(params[:line])
       redirect path_to(:first).with(params[:line])
