@@ -4,14 +4,21 @@ class Phone < Sinatra::Application
   set :views, settings.root + '/views/phone'
   set :slim, pretty: true
 
-  paths main:   '/phone/main',
-        line:   '/phone/bus/:line',
-        first:  '/phone/bus/:line/play',
-        new:    '/phone/bus/:line/record',
-        play:   '/phone/bus/:line/recordings/:id',
-        next:   '/phone/bus/:line/recordings/:id/next',
-        prev:   '/phone/bus/:line/recordings/:id/previous',
-        create: '/phone/bus/:line/recordings'
+  paths main:    '/phone/main',
+        line:    '/phone/bus/:line',
+        confirm: '/phone/bus/:line/confirm',
+        first:   '/phone/bus/:line/play',
+        new:     '/phone/bus/:line/record',
+        play:    '/phone/bus/:line/recordings/:id',
+        next:    '/phone/bus/:line/recordings/:id/next',
+        prev:    '/phone/bus/:line/recordings/:id/previous',
+        end:     '/phone/bus/:line/end',
+        create:  '/phone/bus/:line/recordings'
+
+  RECORD_BUTTON = '9'
+  HOME_BUTTON = '0'
+  NEXT_BUTTON = '3'
+  PREV_BUTTON = '1'
 
   before do
     content_type :xml
@@ -28,7 +35,19 @@ class Phone < Sinatra::Application
 
   # interpret main menu input
   post :main do
-    redirect path_to(:line).with(params[:Digits])
+    redirect path_to(:confirm).with(params[:Digits])
+  end
+
+  get :confirm do
+    slim :confirm
+  end
+
+  post :confirm do
+    if params[:Digits] == HOME_BUTTON
+      redirect path_to(:main)
+    else
+      redirect path_to(:line).with(params[:line])
+    end
   end
 
   get :line do
@@ -47,31 +66,46 @@ class Phone < Sinatra::Application
     if next_recording = Recording.next(params[:line], params[:id])
       redirect path_to(:play).with(params[:line], next_recording.id)
     else
-      redirect path_to(:line).with(params[:line])
+      redirect path_to(:end).with(params[:line])
     end
   end
 
   get :prev do
-    redirect path_to(:play).with(params[:line], Recording.prev(params[:line], params[:id]).id)
+    if prev_recording = Recording.prev(params[:line], params[:id])
+      redirect path_to(:play).with(params[:line], prev_recording.id)
+    else
+      redirect path_to(:play).with(params[:line], params[:id])
+    end
+  end
+
+  get :end do
+    slim :end
   end
 
   post :line do
-    if params[:Digits] == '9'
-      redirect path_to(:new).with(params[:line])
-    elsif Recording.exists_for_bus?(params[:line])
-      redirect path_to(:first).with(params[:line])
-    else
-      redirect path_to(:line).with(params[:line])
-    end
+    redirect case params[:Digits]
+      when HOME_BUTTON
+        path_to(:main)
+      when RECORD_BUTTON
+        path_to(:new).with(params[:line])
+      else
+        if Recording.exists_for_bus?(params[:line])
+          path_to(:first).with(params[:line])
+        else
+          path_to(:line).with(params[:line])
+        end
+      end
   end
 
   post :play do
     redirect case params[:Digits]
-      when '1'
+      when HOME_BUTTON
+        path_to(:main)
+      when PREV_BUTTON
         path_to(:prev).with(params[:line], params[:id])
-      when '2'
+      when NEXT_BUTTON
         path_to(:next).with(params[:line], params[:id])
-      when '9'
+      when RECORD_BUTTON
         path_to(:new).with(params[:line])
       else
         path_to(:play).with(params[:line], params[:id])

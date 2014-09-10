@@ -1,6 +1,7 @@
 doctype xml
 Response
   Gather method="POST" action=path_to(:main) numDigits="3" timeout="10" finishOnKey="#"
+    Say Welcome to LOOP
     Say Enter your bus number
   Say Sorry, I didn't get that.
   Redirect method="GET" = path_to(:main)

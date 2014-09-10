@@ -3,9 +3,9 @@ Response
   Gather method="POST" action=path_to(:line).with(params[:line]) numDigits="1"
     - if has_recordings
       Say Playing recordings for bus number #{params[:line]}
-      Say To skip to the next recording press 3
-      Say To go back to the previous recording press 1
+      Say To skip to the next recording press #{NEXT_BUTTON}
+      Say To go back to the previous recording press #{PREV_BUTTON}
     - else
       Say Bus number #{params[:line]} has no recordings yet
-    Say To record your own for this bus press 9
+    Say To record your own for this bus press #{RECORD_BUTTON}
   Redirect method="GET" = has_recordings ? path_to(:first).with(params[:line]) : path_to(:line).with(params[:line])

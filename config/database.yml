@@ -6,6 +6,14 @@ development:
   pool: 5
   host: localhost
 
+test:
+  adapter: postgresql
+  database: loop_test
+  username: <%= ENV['USER'] %>
+  password:
+  pool: 5
+  host: localhost
+
 production:
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>

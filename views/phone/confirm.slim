@@ -1,0 +1,6 @@
+doctype xml
+Response
+  Gather method="POST" action=path_to(:confirm) numDigits="1" timeout="2"
+    Say You entered #{params[:line]}
+    Say If this is incorrect, press #{HOME_BUTTON}
+  Redirect method="GET" = path_to(:line).with(params[:line])

@@ -9,6 +9,15 @@ gem 'sinatra-activerecord'
 gem 'pry'
 gem 'rake'
 gem 'slim'
-gem 'thin'
-gem 'shotgun'
 gem 'sinatra-snap', git: 'https://github.com/bcarlso/snap.git'
+
+group :development do
+  gem 'thin'
+  gem 'shotgun'
+end
+
+group :test do
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'database_cleaner'
+end
