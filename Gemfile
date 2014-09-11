@@ -11,6 +11,10 @@ gem 'rake'
 gem 'slim'
 gem 'sinatra-snap', git: 'https://github.com/bcarlso/snap.git'
 
+group :production do
+  gem "sentry-raven", git: 'https://github.com/getsentry/raven-ruby.git'
+end
+
 group :development do
   gem 'thin'
   gem 'shotgun'
