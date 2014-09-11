@@ -117,7 +117,11 @@ class Phone < Sinatra::Application
   end
 
   post :create do
-    Recording.create!(bus: params[:line], url: params[:RecordingUrl])
+    Recording.create!(
+      bus: params[:line],
+      url: params[:RecordingUrl],
+      duration: params[:RecordingDuration]
+    )
     redirect path_to(:line).with(params[:line])
   end
 end

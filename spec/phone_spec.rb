@@ -91,6 +91,13 @@ describe Phone do
       specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:play).with(line, middle_recording.id)) }
     end
 
+    context 'when next recording is hidden' do
+      before { middle_recording.update(hidden: true) }
+      before { get helpers.path_to(:next).with(line, newest_recording.id) }
+      specify { expect(last_response).to be_redirect }
+      specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:play).with(line, oldest_recording.id)) }
+    end
+
     context 'with no next recording' do
       before { get helpers.path_to(:next).with(line, oldest_recording.id) }
       specify { expect(last_response).to be_redirect }
@@ -210,8 +217,9 @@ describe Phone do
   describe 'POST :play' do
     let(:line) { '123' }
     let(:url) { 'http://api.twilio.com/2010-04-01/Accounts/AC28dfa8542e02ffa84d6c6c4328268609/Recordings/RE49cc3599464c0ea759e4008e70c9ebb5' }
-    before { post helpers.path_to(:create).with(line), 'RecordingUrl' => url }
-    specify { expect(Recording.where(bus: line, url: url)).to exist }
+    let(:duration) { 3600 }
+    before { post helpers.path_to(:create).with(line), 'RecordingUrl' => url, 'RecordingDuration' => duration }
+    specify { expect(Recording.where(bus: line, url: url, duration: duration)).to exist }
     specify { expect(last_response).to be_redirect }
     specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:line).with(line)) }
   end

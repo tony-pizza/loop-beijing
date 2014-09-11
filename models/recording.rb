@@ -1,6 +1,7 @@
 class Recording < ActiveRecord::Base
   validates :url, :bus, presence: true
 
+  default_scope { where(hidden: false) }
   default_scope { order('recordings.created_at DESC') }
 
   def self.nearest(line, id = nil)
