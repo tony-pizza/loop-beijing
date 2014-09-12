@@ -11,14 +11,16 @@ module RSpecMixin
   end
 end
 
-ActiveRecord::Base.logger = nil
-ActiveRecord::Migration.check_pending!
-
 RSpec.configure do |config|
   config.tty = true
   config.color = true
   config.formatter = :documentation
   config.include RSpecMixin
+
+  config.before(:all) do
+    ActiveRecord::Base.logger = nil
+    ActiveRecord::Migration.check_pending!
+  end
 
   config.before(:each) do
     DatabaseCleaner.start

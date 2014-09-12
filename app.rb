@@ -16,7 +16,9 @@ end
 class Loop < Sinatra::Base
   configure :production do
     use Raven::Rack
-    ActiveRecord::Base.logger.level = Logger::WARN
+    # if ActiveRecord::Base.logger
+      ActiveRecord::Base.logger.level = Logger::WARN
+    # end
   end
 
   use Phone
