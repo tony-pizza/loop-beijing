@@ -24,10 +24,6 @@ class Phone < Sinatra::Application
     content_type :xml
   end
 
-  after do
-    logger.info "Params: #{params}"
-  end
-
   # main menu
   get :main do
     slim :menu
