@@ -18,7 +18,7 @@ RSpec.configure do |config|
   config.include RSpecMixin
 
   config.before(:all) do
-    ActiveRecord::Base.logger = nil
+    # ActiveRecord::Base.logger = nil
     ActiveRecord::Migration.check_pending!
   end
 
