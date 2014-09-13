@@ -116,7 +116,8 @@ class Phone < Sinatra::Application
     Recording.create!(
       bus: params[:line],
       url: params[:RecordingUrl],
-      duration: params[:RecordingDuration]
+      duration: params[:RecordingDuration],
+      number_hash: NumberSigner.sign(params[:From])
     )
     redirect path_to(:line).with(params[:line])
   end

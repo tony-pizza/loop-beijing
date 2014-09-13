@@ -214,12 +214,17 @@ describe Phone do
     specify { expect(last_response.body).to include('<Record') }
   end
 
-  describe 'POST :play' do
+  describe 'POST :create' do
     let(:line) { '123' }
     let(:url) { 'http://api.twilio.com/2010-04-01/Accounts/AC28dfa8542e02ffa84d6c6c4328268609/Recordings/RE49cc3599464c0ea759e4008e70c9ebb5' }
     let(:duration) { 3600 }
-    before { post helpers.path_to(:create).with(line), 'RecordingUrl' => url, 'RecordingDuration' => duration }
-    specify { expect(Recording.where(bus: line, url: url, duration: duration)).to exist }
+    let(:from) { '+16175551212' }
+    before { ENV['NUMBER_SALT'] = 'test_salt' }
+    before { post helpers.path_to(:create).with(line), 'RecordingUrl' => url, 'RecordingDuration' => duration, 'From' => from }
+    specify { expect(Recording.last.bus).to eq(line.to_i) }
+    specify { expect(Recording.last.url).to eq(url) }
+    specify { expect(Recording.last.duration).to eq(duration) }
+    specify { expect(Recording.last.number_hash).to eq(NumberSigner.sign(from)) }
     specify { expect(last_response).to be_redirect }
     specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:line).with(line)) }
   end

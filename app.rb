@@ -3,6 +3,7 @@ require 'sinatra/activerecord'
 require 'sinatra/snap'
 require 'slim'
 
+require_relative 'lib/number_signer'
 require_relative 'apps/phone'
 require_relative 'models/recording'
 
