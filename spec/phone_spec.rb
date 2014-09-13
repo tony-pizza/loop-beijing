@@ -18,6 +18,10 @@ describe Phone do
     before { post helpers.path_to(:main), 'Digits' => digits }
     specify { expect(last_response).to be_redirect }
     specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:confirm).with(digits)) }
+    context 'leading zeros' do
+      let(:digits) { '001' }
+      specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:confirm).with(digits.to_i)) }
+    end
   end
 
   describe 'GET :confirm' do

@@ -31,7 +31,7 @@ class Phone < Sinatra::Application
 
   # interpret main menu input
   post :main do
-    redirect path_to(:confirm).with(params[:Digits])
+    redirect path_to(:confirm).with(params[:Digits].to_i)
   end
 
   get :confirm do
