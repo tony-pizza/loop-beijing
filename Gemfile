@@ -10,14 +10,17 @@ gem 'pry'
 gem 'rake'
 gem 'slim'
 gem 'sinatra-snap', git: 'https://github.com/bcarlso/snap.git'
-gem 'thin'
+gem 'unicorn'
+gem 'rack-timeout'
 
 group :production do
   gem "sentry-raven", git: 'https://github.com/getsentry/raven-ruby.git'
 end
 
 group :development do
+  gem 'dotenv'
   gem 'shotgun'
+  gem 'thin'
 end
 
 group :test do
