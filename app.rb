@@ -6,9 +6,8 @@ require 'slim'
 
 require_relative 'lib/number_signer'
 require_relative 'apps/phone'
+require_relative 'apps/web'
 require_relative 'models/recording'
-
-Rack::Timeout.timeout = 10
 
 class Loop < Sinatra::Base
   use Rack::Timeout
@@ -25,5 +24,6 @@ class Loop < Sinatra::Base
     ActiveRecord::Base.logger.level = Logger::WARN if ActiveRecord::Base.logger
   end
 
+  use Web
   use Phone
 end
