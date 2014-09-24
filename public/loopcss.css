@@ -57,6 +57,16 @@ body
 }
 
 
+h1 {
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+h2 {
+  font-weight: normal;
+  margin: 1em 0;
+}
+
 
 .container
 {
