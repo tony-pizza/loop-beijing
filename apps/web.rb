@@ -27,12 +27,17 @@ class Web < Sinatra::Application
     puts JSON.parse(params['transloadit'])['results'][':original'].first['url']
     puts JSON.parse(params['transloadit'])['results']['mp3'].first['url']
 
-    original = JSON.parse(params['transloadit'])['results'][':original'].first
+    transloadit_results = JSON.parse(params['transloadit'])['results']
+    original = transloadit_results[':original'].first
+    mp3 = transloadit_results['mp3'].first
+
+    puts original.inspect
 
     Recording.create!(
       bus: params[:recording][:bus],
-      url: original['url'],
-      duration: original['duration']
+      original_url: original['url'],
+      web_url: mp3['url'],
+      duration: original['meta']['duration']
     )
 
     redirect '/'
