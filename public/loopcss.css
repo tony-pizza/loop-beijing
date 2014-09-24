@@ -190,19 +190,26 @@ banner {
   
 }
 
-@media (max-width:768px)
+*/
+
+@media (max-width:960px)
 {
+
+.container
+{
+width:720px;
 }
 
-@media (max-width:640px)
-{
 }
+
+
 
 @media (max-width:480px)
 {
+
+.container
+{
+width:100%;
 }
 
-@media (max-width:320px)
-{
 }
-*/
