@@ -5,18 +5,17 @@ color:#FFFFFF;
 }
 
 
-/*this is where main background image is set*/
 
 .container
 {
-	width: 100%;
+	width: 960px;
 	margin: 0 auto;
 }
 
 .banner
 {
 	background:url(909.jpg) no-repeat;
-	background-size: contain;
+	background-size: cover;
 	min-height: 100%;
   	min-width: 1024px;
 	
@@ -29,14 +28,15 @@ color:#FFFFFF;
 }
 
 
-.right-main
+.left-main
 {
-z-index: 9999;
-position: absolute;
+position: relative;
 display:block; 
-top:10%; 
-right:50%;
-width:20%;
+padding-top:20px; 
+padding-right:10px;
+width:200px;
+float:right;
+
 }
 
 .right-main ul {text-align: left; font-size: 16px; list-style-type: none;}
@@ -44,7 +44,7 @@ width:20%;
 
 
 
-.right-main a
+.left-main a
 {color:#0099FF; font-weight:bold;
 	-moz-transition: color 0.10s;
 	-ms-transition: color 0.10s;
@@ -57,45 +57,44 @@ width:20%;
 .right-main a:hover { color: #FFFF00; border-bottom: 1px solid; border-top: 1px solid}
 
 
-.left-main
+.right-main
 {
-position: absolute;
+position: relative;
 display:block; 
-top:10%; 
-left:50%; 
-z-index:9999;
+padding-top:20px; 
 font:inherit;
-width: 40%;
-	font-weight:normal;
+width: 350px;
+font-weight:normal;
+float:right;
 
 }
 
 
 
-.left-main h1
+.right-main h1
 {
 	font-size:24px;
 }	
 
-.left-main h2
+.right-main h2
 {
 	font-size:24px;
 	font-weight:normal;
 }	
 
 
-.left-main span
+.right-main span
 {
 	display:block;
 }
 
-.left-main p
+.right-main p
 {
 	font-size:18px;
 	margin-top:8%;
 }
 
-.left-video
+.right-video
 {
 position: relative;
     width: 80%;
@@ -103,7 +102,7 @@ position: relative;
     z-index:9999;
 
 }
-.left-video:before{
+.right-video:before{
     content: "";
     display: block;
     padding-top: 50%;
