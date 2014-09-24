@@ -1,0 +1,24 @@
+.container
+  h1 Upload audio
+
+  form#upload-form action="/upload" enctype="multipart/form-data" method="POST"
+   
+    label for="recording_bus" Bus:
+    select#recording_bus name="recording[bus]"
+      - 1.upto(999) do |bus|
+        option value=bus = bus
+    input type="file" name="file"
+
+script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"
+
+javascript:
+  $(function() {
+    // We reference our html form here
+    $('#upload-form').transloadit({
+      wait: true,
+      triggerUploadOnFileSelection: true,
+      signature: '#{signature}',
+      params: #{{transloadit_params}}
+    });
+  });
