@@ -1,5 +1,5 @@
 class Recording < ActiveRecord::Base
-  validates :url, :bus, presence: true
+  validates :original_url, :web_url, :bus, presence: true
 
   default_scope { where(hidden: false) }
   default_scope { order('recordings.created_at DESC') }

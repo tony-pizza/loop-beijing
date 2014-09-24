@@ -5,6 +5,15 @@ describe Phone do
     def helpers
       @helpers ||= Phone.new.helpers
     end
+
+    def create_recording(attrs = {})
+      Recording.create({
+        bus: 1,
+        duration: 15,
+        original_url: 'http://loopbeijing.com/recording.wav',
+        web_url: 'http://loopbeijing.com/recording.mp3'
+      }.merge(attrs))
+    end
   end
 
   describe 'GET :main' do
@@ -48,7 +57,7 @@ describe Phone do
 
   describe 'GET :line' do
     let(:line_with_recordings) { '123' }
-    before { Recording.create!(bus: line_with_recordings, url: 'http://loopbeijing.com/recording.wav') }
+    before { create_recording(bus: line_with_recordings) }
 
     context 'has recordings' do
       let(:line) { line_with_recordings }
@@ -68,7 +77,7 @@ describe Phone do
 
   describe 'GET :first' do
     let(:line) { '123' }
-    let!(:recording) { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
+    let!(:recording) { create_recording(bus: line) }
     before { get helpers.path_to(:first).with(line) }
     specify { expect(last_response).to be_redirect }
     specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:play).with(line, recording.id)) }
@@ -76,18 +85,18 @@ describe Phone do
 
   describe 'GET :play' do
     let(:line) { '123' }
-    let!(:recording) { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
+    let!(:recording) { create_recording(bus: line) }
     before { get helpers.path_to(:play).with(line, recording.id) }
     specify { expect(last_response.status).to eq(200) }
-    specify { expect(last_response.body).to include(recording.url) }
+    specify { expect(last_response.body).to include(recording.original_url) }
     specify { expect(last_response.body).to include(helpers.path_to(:next).with(line, recording.id)) }
   end
 
   describe 'GET :next' do
     let(:line) { '123' }
-    let!(:newest_recording) { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
-    let!(:middle_recording) { Recording.create!(created_at: 2.days.ago, bus: line, url: 'http://loopbeijing.com/recording.wav') }
-    let!(:oldest_recording) { Recording.create!(created_at: 3.days.ago, bus: line, url: 'http://loopbeijing.com/recording.wav') }
+    let!(:newest_recording) { create_recording(bus: line) }
+    let!(:middle_recording) { create_recording(created_at: 2.days.ago, bus: line) }
+    let!(:oldest_recording) { create_recording(created_at: 3.days.ago, bus: line) }
 
     context 'with next recording' do
       before { get helpers.path_to(:next).with(line, newest_recording.id) }
@@ -111,9 +120,9 @@ describe Phone do
 
   describe 'GET :prev' do
     let(:line) { '123' }
-    let!(:newest_recording) { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
-    let!(:middle_recording) { Recording.create!(created_at: 2.days.ago, bus: line, url: 'http://loopbeijing.com/recording.wav') }
-    let!(:oldest_recording) { Recording.create!(created_at: 3.days.ago, bus: line, url: 'http://loopbeijing.com/recording.wav') }
+    let!(:newest_recording) { create_recording(bus: line) }
+    let!(:middle_recording) { create_recording(created_at: 2.days.ago, bus: line) }
+    let!(:oldest_recording) { create_recording(created_at: 3.days.ago, bus: line) }
 
     context 'with prev recording' do
       before { get helpers.path_to(:prev).with(line, oldest_recording.id) }
@@ -156,7 +165,7 @@ describe Phone do
     context 'entered something else' do
       context 'has recordings' do
         let(:digits) { 'x' }
-        before { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
+        before { create_recording(bus: line) }
         before { post helpers.path_to(:line).with(line), 'Digits' => digits }
         specify { expect(last_response).to be_redirect }
         specify { expect(last_response.location).to eq('http://' + last_request.host + helpers.path_to(:first).with(line)) }
@@ -173,7 +182,7 @@ describe Phone do
 
   describe 'POST :play' do
     let(:line) { '123' }
-    let!(:recording) { Recording.create!(bus: line, url: 'http://loopbeijing.com/recording.wav') }
+    let!(:recording) { create_recording(bus: line) }
 
     context "entered #{Phone::HOME_BUTTON}" do
       let(:digits) { Phone::HOME_BUTTON }
@@ -226,7 +235,8 @@ describe Phone do
     before { ENV['NUMBER_SALT'] = 'test_salt' }
     before { post helpers.path_to(:create).with(line), 'RecordingUrl' => url, 'RecordingDuration' => duration, 'From' => from }
     specify { expect(Recording.last.bus).to eq(line.to_i) }
-    specify { expect(Recording.last.url).to eq(url) }
+    specify { expect(Recording.last.original_url).to eq(url + '.wav') }
+    specify { expect(Recording.last.web_url).to eq(url + '.mp3') }
     specify { expect(Recording.last.duration).to eq(duration) }
     specify { expect(Recording.last.number_hash).to eq(NumberSigner.sign(from)) }
     specify { expect(last_response).to be_redirect }

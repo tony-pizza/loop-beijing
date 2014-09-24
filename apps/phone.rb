@@ -115,7 +115,8 @@ class Phone < Sinatra::Application
   post :create do
     Recording.create!(
       bus: params[:line],
-      url: params[:RecordingUrl],
+      original_url: params[:RecordingUrl] + '.wav',
+      web_url: params[:RecordingUrl] + '.mp3',
       duration: params[:RecordingDuration],
       number_hash: NumberSigner.sign(params[:From])
     )
