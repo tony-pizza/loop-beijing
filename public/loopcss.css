@@ -1,0 +1,208 @@
+body{
+font-family: Helvetica, Arial, "Microsoft Yahei", "微软雅黑", 黑体, SimHei, "华文黑体", STHeiti, STXihei, "华文细黑", sans-serif;
+font-size: 100%;
+color:#FFFFFF;
+}
+
+
+
+.container
+{
+	width: 960px;
+	margin: 0 auto;
+}
+
+.banner
+{
+	background:url(909.jpg) no-repeat;
+	background-size: cover;
+	min-height: 100%;
+  	min-width: 1024px;
+	
+	width: 100%;
+  height: auto;
+	
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+.left-main
+{
+position: relative;
+display:block; 
+padding-top:20px; 
+padding-right:10px;
+width:200px;
+float:right;
+
+}
+
+.right-main ul {text-align: left; font-size: 16px; list-style-type: none;}
+.right-main li {text-align:left; padding:3px; }
+
+
+
+.left-main a
+{color:#0099FF; font-weight:bold;
+	-moz-transition: color 0.10s;
+	-ms-transition: color 0.10s;
+	-o-transition: color 0.10s;
+	-webkit-transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: color 1s cubic-bezier(0.075, 0.82, 0.165, 1); 
+	text-decoration:none;
+	}
+	
+.right-main a:hover { color: #FFFF00; border-bottom: 1px solid; border-top: 1px solid}
+
+
+.right-main
+{
+position: relative;
+display:block; 
+padding-top:20px; 
+font:inherit;
+width: 350px;
+font-weight:normal;
+float:right;
+
+}
+
+
+
+.right-main h1
+{
+	font-size:24px;
+}	
+
+.right-main h2
+{
+	font-size:24px;
+	font-weight:normal;
+}	
+
+
+.right-main span
+{
+	display:block;
+}
+
+.right-main p
+{
+	font-size:18px;
+	margin-top:8%;
+}
+
+.right-video
+{
+position: relative;
+    width: 80%;
+    background: #4679BD;
+    z-index:9999;
+
+}
+.right-video:before{
+    content: "";
+    display: block;
+    padding-top: 50%;
+}
+
+.choicetext
+{
+position: absolute;
+display:block; 
+top:65%; 
+left:50%; 
+z-index:9999;
+font-weight: normal;
+width: 40%;
+}
+
+.choicetext h2
+{
+	font-size:24px;
+	font-weight:normal;
+}
+
+
+.selectbutton
+{
+position:absolute;
+border: 3px solid #FFFF00;
+font-size: 16px;
+color: #fff;
+background: #0099FF;
+padding: 7px;
+margin: 0px 9px 0px 9px;
+}
+
+.recbutton {
+  padding: 5px 5px 10px 25px;
+    color:#fff;
+    font-size:16px;
+    padding:5px 5px 5px 24px;
+  border: 3px solid #FFFF00;
+  text-decoration:none;
+  background: #0099FF url(rec.png) no-repeat scroll 2px center;
+}
+
+
+
+/*secondpart*/
+
+.featured
+{
+	background-color:#fff;
+	min-height: 100%;
+  	min-width: 1024px;
+	
+	width: 100%;
+  height: 50%;
+  position: relative;
+  top:600px;
+  left:0px;
+
+}
+
+
+.container .three.columns
+{ width: 160px; }
+
+.container .offset-by-three
+{ padding-left: 180px; }
+
+
+
+
+
+/*for smallerthings
+@media (max-width:1024px)
+{
+banner {
+    left: 50%;
+  }
+
+.left-main
+{
+		margin-top: 88%;
+	}
+  
+}
+
+@media (max-width:768px)
+{
+}
+
+@media (max-width:640px)
+{
+}
+
+@media (max-width:480px)
+{
+}
+
+@media (max-width:320px)
+{
+}
+*/
