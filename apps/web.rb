@@ -11,6 +11,7 @@ class Web < Sinatra::Application
 <html>
 <head>
 	<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Interactive and participatory audio installations on Beijing public buses." />
   <meta name="keywords" content="loop, beijing, loop beijing, buses, beijing design week, audio installation" />
 	<title>LOOP Beijing</title>
