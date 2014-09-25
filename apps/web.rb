@@ -5,7 +5,7 @@ class Web < Sinatra::Application
   set :public_dir, settings.root + '/public'
   set :slim, pretty: settings.development?
 
-  get /w*(\.html?)?/ do
+  get /^\/\w*(\.html?)?$/ do
     <<-EOHTML
 <!DOCTYPE html>
 <html>
