@@ -5,12 +5,46 @@ class Web < Sinatra::Application
   set :public_dir, settings.root + '/public'
   set :slim, pretty: settings.development?
 
-  # paths index:   '/'
+  get /w*(\.html?)?/ do
+    <<-EOHTML
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+  <meta name="description" content="Interactive and participatory audio installations on Beijing public buses." />
+  <meta name="keywords" content="loop, beijing, loop beijing, buses, beijing design week, audio installation" />
+	<title>LOOP Beijing</title>
+  <style type="text/css">
+    body {
+      background: url(/images/bg.jpg) no-repeat fixed;
+      background-size: cover;
+      color: #FFFFFF;
+      font-family: Helvetica, Arial, "Microsoft Yahei", "微软雅黑", 黑体, SimHei, "华文黑体", STHeiti, STXihei, "华文细黑", sans-serif;
+      font-size: 100%;
+      line-height: 1.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div style="top: 20%; position: absolute; width: 100%;">
+  <img src="/images/logo.png" />
+</div>
+</body>
+</html>
+    EOHTML
+  end
 
-  # get :index do
-  # end
+  not_found do
+    redirect '/'
+  end
 
-  get '/' do
+  error do
+    redirect '/'
+  end
+
+  get '/new' do
+    redirect '/' unless settings.development?
     transloadit_params = JSON.generate(
       auth: {
         key:     ENV['TRANSLOADIT_AUTH_KEY'],
@@ -24,14 +58,11 @@ class Web < Sinatra::Application
   end
 
   post '/upload' do
-    puts JSON.parse(params['transloadit'])['results'][':original'].first['url']
-    puts JSON.parse(params['transloadit'])['results']['mp3'].first['url']
+    redirect '/' unless settings.development?
 
     transloadit_results = JSON.parse(params['transloadit'])['results']
     original = transloadit_results[':original'].first
     mp3 = transloadit_results['mp3'].first
-
-    puts original.inspect
 
     Recording.create!(
       bus: params[:recording][:bus],
