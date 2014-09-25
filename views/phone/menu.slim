@@ -1,7 +1,8 @@
 doctype xml
 Response
   Gather method="POST" action=path_to(:main) numDigits="3" timeout="10" finishOnKey="#"
-    Say Welcome to LOOP
-    Say Enter your bus number
-  Say Sorry, I didn't get that.
+    / Welcome, enter your bus number
+    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/Welcome.m4a
+  / Sorry, didn't get that
+  Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/invalid+Number.m4a
   Redirect method="GET" = path_to(:main)
