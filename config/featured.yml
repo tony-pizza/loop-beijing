@@ -1,6 +1,6 @@
 909:
   video_url:
-  artist_name: <a href="cargocollective.com/binbing" target="_new">Bing Bin 宾冰</a>
+  artist_name: <a href="cargocollective.com/binbing" target="_blank">Bing Bin 宾冰</a>
   bio_chin: >
     公交车与声音/音乐最直接的联系是广播节目/流行音乐电台或电视节目。
     这组声音作品共有三个音频，随机播放，每个音频基于音乐电台模式，
@@ -23,14 +23,13 @@
 731:
   video_url: 
   artist_name: <a href="http://www.simonfrank.bandcamp.com" target="_blank">Simon Frank</a>
-  bio_chin: >
+  bio_chin:
+  bio_eng: >
     Simon Frank is a geographically challenged graduate students and musician currently based in London. 
     He mostly tries to push simple ideas past their limit. Simon is one half of the duo Hot & Cold
-
-  bio_eng:
 674:
   video_url:
-  artist_name: <a href="http://parallelpyres.bandcamp.com/" target="_new"> Parallel Pyres (Joshua Frank)</a>
+  artist_name: <a href="http://parallelpyres.bandcamp.com/" target="_blank"> Parallel Pyres (Joshua Frank)</a>
   bio_chin:
   bio_eng: >
     Parallel Pyres is the transnational blues solo project of musician and filmmaker Joshua Frank. 
@@ -38,7 +37,7 @@
 
 918:
   video_url:
-  artist_name: <a href="http://thruoutin.bandcamp.com/" target="_new">thruoutin (Brad Seippel)</a>
+  artist_name: <a href="http://thruoutin.bandcamp.com/" target="_blank">thruoutin (Brad Seippel)</a>
   bio_chin: >
     来自美国的电子音乐家与音乐制作人thruoutin，在中国成立了5年。多元化的音乐风格，把奇怪的温情电子和中国民乐音乐结合在一起。
     你可以听到多种艺术创作思维在他的音乐里，尤其是对大自然的采样和物理电子声音的钟爱。并曾在加拿大.台湾.韩国.
@@ -52,7 +51,7 @@
     featured on such labels as Jingweir (Beijing), Huashan (Shanghai), 87Fei87 (Beijing), and Aud-Art (Pittsburg).
 113:
   video_url:
-  artist_name: <a href="http://site.douban.com/charm/" target="_new">Charm (Josh Feola)</a>
+  artist_name: <a href="http://site.douban.com/charm/" target="_blank">Charm (Josh Feola)</a>
   bio_chin: > 
     Charm是一个长期的表演和录音项目，包括田野录音，"拾得"文化声音, 消衰反馈／噪音／长音拼贴。
     Charm是居住在北京的音乐人、作家、策划人Josh Feola的个人项目。Feola活跃于北京地下实验音乐圈，
@@ -66,8 +65,9 @@
     "found" cultural sounds, and decaying feedback/noise/drone collages.
 109:
   video_url:
-  artist_name: <a href="http://sounds-from-dangerous-places.org/" target="_new">Peter Cusack</a>
-  bio_chin: >
+  artist_name: <a href="http://sounds-from-dangerous-places.org/" target="_blank">Peter Cusack</a>
+  bio_chin: 
+  bio_eng: >
     <p>Peter Cusack is a field recordist, musician and researcher with a special interest in the acoustic environment. 
     <p>He is a member of CRiSAP (Creative Research into Sound Art Practice) at LCC, UAL.
     <p>In 1998 he initiated the long running 'Favourite Sounds Project', to discover how people interact 
@@ -79,15 +79,14 @@
     <p>CDs include Your Favourite London Sounds (Resonance); Baikal Ice (ReR PC2); 
     Favourite Beijing Sounds (KwanYin 022); Sound from Dangerous Places (ReR PC3&4); 
     Favourite Berlin Sounds (ReR PC5).
-  bio_eng: 
 
 586: 
   video_url: http://www.tudou.com/v/HmDfi0Rc0PY/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf
-  artist_name: <a href="http://lukayangworks.com" target="_new">Luka Yang 杨圆</a> and <a href="http://naendrel.bandcamp.com/" target="_new">Rafael Lisboa (aka NAENDRAL)</a>
+  artist_name: <a href="http://lukayangworks.com" target="_blank">Luka Yang 杨圆</a> and <a href="http://naendrel.bandcamp.com/" target="_blank">Rafael Lisboa (aka NAENDRAL)</a>
   bio_chin: >
     这部视频来于杨圆圆的艺术项目《在沉船上》（第三阶段：586路公交车）‍《在沉船上》是杨圆圆正在施行中的艺术项目。2013年11月的第一个星期一，项目起始于东北五环某处废弃的办公室。作品的形式跨越行为、录像、摄影、采访等多种形式，项目的核心意在探索在当今飞速发展的城市环境中，个体与城市空间之间多元而复杂的关系。
     艺术家将作品第一以及第二章节（“抵达”和“对话”）的内容以工作日志的形式记录在网络上，（该博客的更新截止至2013年12月中旬，作品后几阶段的内容还在进行中，作品最终会以建筑的拆除作为完结 ）：
-    <a href="http://ontheshipwreck.tumblr.com/" target="_new">On the Ship Wreck Tumblr</a>
+    <a href="http://ontheshipwreck.tumblr.com/" target="_blank">On the Ship Wreck Tumblr</a>
     <p>杨圆圆（b.1989）目前工作居住于北京。她于2013年获得伦敦艺术大学，伦敦传媒学院的摄影本科学位。
     她的作品曾在不同的城市展出，包括于北京和重庆的个展，以及在纽约、伦敦、多伦多、北京、上海、平遥、
     杭州等城市参加群展。杨圆圆于2014年获得Bloomberg New Contemporaries的提名；2013年被选为Magenta: Flash Forward
@@ -103,32 +102,32 @@
     (‘Arrival’ and ‘Conversation’) were presented online by the artist.
     (The blog was updated until mid-December, 2013, the project is still in progress, 
     the project will be completed at the same time with the destruction of the building ) 
-    <a href="http://ontheshipwreck.tumblr.com/" target="_new">On the Ship Wreck Tumblr</a>
+    <a href="http://ontheshipwreck.tumblr.com/" target="_blank">On the Ship Wreck Tumblr</a>
     <p>Yuanyuan Yang (b. 1989) lives and works in Beijing. She received a BA (Hons) 
     in Photography at the London College of Communications, University of the Arts London in 2013. 
     Yang's work has been exhibited and published internationally, with solo show in Beijing and Chongqing, 
     group shows in London, New York, Toronto, Beijing, Shanghai, Pingyao and Hangzhou. Yang was the shortlisted artist of 
     Bloomberg New Contemporaries in 2014; one of the UK winners for Magenta: Flash Forward in 2013 and the selected photographer 
     for Tierney Fellowship in 2012; in 2011, she won the 3rd prize for Bar-Tur Award.
-409
+409:
   video_url:
-  artist_name: <a href="http://site.douban.com/whiteplus/" target="_new">Wang Xu 王旭</a>
-  bio_chin: >
+  artist_name: <a href="http://site.douban.com/whiteplus/" target="_blank">Wang Xu 王旭</a>
+  bio_chin: 
+  bio_eng: >
     Wang Xu is part of White+ and the Gar
-  bio_eng: 
-27
+27:
   video_url: 
-  artist_name: <a href="http://site.douban.com/shouwang/" target="_new">Zhang Shouwang 张守望</a>
+  artist_name: <a href="http://site.douban.com/shouwang/" target="_blank">Zhang Shouwang 张守望</a>
   bio_chin: >
     除了做好自己的音乐之外，张守望还积极投身到唱片产业当中，当起了兵马司子厂牌Maybe Noise的负责人，对新生代乐队给予平台和帮助。在他看来，音乐环境在某种程度上决定着音乐人的命运，只有足够开放的环境，才能够为音乐人提供更好的生存空间。而当下的北京，正处于百花齐放的时代，各种充满个性的音乐人，都可以找到属于自己的平台，赢得广泛的关注和青睐。
     作为受到全世界瞩目的中国地下乐队中的一支，Carsick Cars在国内外进行了大量的演出，他们去过中国各大城市的演出现场，被Sonic Youth称作最喜爱的中国乐队，受邀与Sonic Youth一起进行欧洲巡演，并经常参与国内外的知名音乐节。各种各样的的演出和合作经历，使得张守望对各地的音乐环境有了更直接更深刻的认识，从不同的音乐人身上学到许多不一样的想法和观念，而所有这些，终将在音乐上有所呈现。
   bio_eng:
-601
+601:
   video_url:
   artist_name: 方未雅
-  bio_chin: >
+  bio_chin:  
+  bio_eng: >
     方未雅 is a sound artist and filmmaker.
-  bio_eng:  
 
   
   
