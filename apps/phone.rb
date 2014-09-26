@@ -26,7 +26,7 @@ class Phone < Sinatra::Application
 
   helpers do
     def voice_url(name)
-      "#{ENV['S3_BASE_URL']}/phone_menu/#{name}.wav"
+      "#{ENV['S3_BASE_URL']}/phone-menu/#{name}.wav"
     end
   end
 
