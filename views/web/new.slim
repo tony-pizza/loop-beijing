@@ -12,6 +12,8 @@
           select#recording_bus name="recording[bus]"
             - 1.upto(999) do |bus|
               option value=bus selected=(params[:bus] == bus.to_s) = bus
+          p mp3, wav and aif file format
+          p mp3, wav 或 aif 文件格式
         .form-control
           input type="file" name="file" accept="audio/*" capture=true
         .form-control
