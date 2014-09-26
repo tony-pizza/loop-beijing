@@ -10,7 +10,7 @@
         h3 Featured Artist:
         h2 #{info['artist_name']}
       .col.third
-        p = info['video_url']
+        embed src=info['video_url'] type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"
       - if info['bio_chin']
         .col class=(info['bio_eng'].blank? ? 'two-thirds' : 'third')
           p.bio.chinese == info['bio_chin']
