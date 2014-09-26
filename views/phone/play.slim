@@ -1,5 +1,5 @@
 doctype xml
 Response
-  Gather method="POST" action=path_to(:play).with(params[:line], recording.id) numDigits="1"
+  Gather method="POST" action=path_to(:play).with(params[:line], recording.id) numDigits="1" timeout="1"
     Play = recording.original_url
   Redirect method="GET" = path_to(:next).with(params[:line], recording.id)
