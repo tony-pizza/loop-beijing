@@ -1,4 +1,5 @@
 #page.container
+  == nav
   .row
     .col.whole
       h1
@@ -17,19 +18,26 @@
       - if info['bio_eng']
         .col class=(info['bio_chin'].blank? ? 'two-thirds' : 'third')
           p.bio.english == info['bio_eng']
-  .row
-    .col.whole
-      - if @recordings.any?
+  - if @recordings.any?
+    .row
+      .col.half
         ul
           - @recordings.each do |recording|
-            li
+            li.recording
+              p == recording.created_at.strftime('%-m/%-e &bull; %-H:%M')
               audio controls=true preload="auto"
                 source src=recording.web_url type="audio/mp3"
-      - else
+
+      .col.half.center-text
+        a.btn.btn-lg href="#{path_to(:new_recording)}?bus=#{params[:line]}" Upload your own recording
+
+  - else
+    .row
+      .col.whole
         p#no-recordings
           | 这个公交线暂时没有录音。
           br/
           | There are no recordings for this bus yet.
           br/
           br/
-          a.btn.btn-lg href="#{path_to(:new_recording)}?bus=#{params[:line]}"Record your own
+          a.btn.btn-lg href="#{path_to(:new_recording)}?bus=#{params[:line]}" Upload your own

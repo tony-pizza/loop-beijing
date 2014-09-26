@@ -136,7 +136,7 @@ hr {
   background: #fff;
   margin-top: 30px;
   margin-bottom: 60px;
-  padding: 30px 0 40px;
+  padding: 20px 0 40px;
 }
 
 #page h1 {
@@ -144,6 +144,17 @@ hr {
   border-bottom: 5px solid #fff200;
   display: inline-block;
   font-weight: 400;
+  padding: 0 10px;
+}
+
+.container .nav {
+  margin-right: 20px;
+  text-align: right;
+}
+
+.container .nav li {
+  display: inline-block;
+  list-style-type: none;
   padding: 0 10px;
 }
 
@@ -270,6 +281,17 @@ h1 .english {
 footer {
 	background: url(/images/footer-bg.png) 50% 50%;
   border: 5px solid #fff200;
+}
+
+.recording {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.recording p {
+  color: #666;
+  font-size: 0.8em;
+  margin: 3px 0;
 }
 
 #no-recordings {

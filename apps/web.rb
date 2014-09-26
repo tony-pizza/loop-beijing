@@ -14,6 +14,24 @@ class Web < Sinatra::Application
 
   FEATURES = YAML.load(File.read(settings.root + '/config/featured.yml'))
 
+  helpers do
+    def nav
+      %{
+        <ul class="nav">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="#{path_to(:buses)}">Buses</a>
+          </li>
+          <li>
+            <a href="#{path_to(:new_recording)}">Upload</a>
+          </li>
+        </ul>
+      }
+    end
+  end
+
   get /^\/(index(\.html?))?$/ do
     @body_id = 'landing'
     @buses = Recording.reorder(nil).uniq.pluck(:bus)
