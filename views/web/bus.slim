@@ -1,8 +1,9 @@
 #page.container
   .row
     .col.whole
-      h1 You are listening to Bus #{params[:line]}
-      h1 您在收听公交线 #{params[:line]} 广播
+      h1
+        .chinese 您在收听公交线 #{params[:line]} 广播
+        .english You are listening to Bus #{params[:line]}
   .row
     .col.whole
       - if @recordings.any?
@@ -12,9 +13,10 @@
               audio controls=true preload="auto"
                 source src=recording.web_url type="audio/mp3"
       - else
-        p.center-text
-          | There are no recordings for this bus yet.
+        p#no-recordings
           | 这个公交线暂时没有录音。
+          br/
+          | There are no recordings for this bus yet.
           br/
           br/
           a.btn.btn-lg href="#{path_to(:new_recording)}?bus=#{params[:line]}"Record your own

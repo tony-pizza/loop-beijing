@@ -180,12 +180,13 @@ hr {
   margin-top: 0;
 }
 
-#hero-feature .chinese {
+.chinese {
   font-weight: 600;
   font-style: italic;
 }
-
-#hero-feature .english {
+h1 .english {
+  font-size: 0.7em;
+  line-height: 1.4em;
 }
 
 #hero-actions {
@@ -195,8 +196,24 @@ hr {
 #hero-listen {
   font-size: 2em;
   font-weight: 600;
-  line-height: 200%;
+  line-height: 1em;
   padding: 10px 0;
+}
+
+#hero-listen .chinese {
+  font-size: 0.9em;
+}
+
+#hero-listen .english {
+  font-weight: 100;
+}
+
+#bus-input-prompt, #bus-input-holder {
+  display: inline-block;
+}
+
+#listen-btn {
+  margin-top: 20px;
 }
 
 #hero-record {
@@ -231,12 +248,12 @@ hr {
   border-bottom: 1px solid #fff200;
   border-radius: 0;
   color: #fff200;
-  font-size: 1em;
+  font-size: 1.3em;
   font-weight: 100;
   margin: 0 6px;
   padding: 4px 0px 4px 8px;
   outline: none;
-  width: 85px;
+  width: 100px;
 }
 
 #featured {
@@ -253,6 +270,11 @@ hr {
 footer {
 	background: url(/images/footer-bg.png) 50% 50%;
   border: 5px solid #fff200;
+}
+
+#no-recordings {
+  text-align: center;
+  font-size: 1.2em;
 }
 
 #bus-list li {
@@ -417,4 +439,14 @@ img.img-responsive {
   .hidden-sm {
     display: none;
   }
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearfix:after {
+  clear: both;
 }

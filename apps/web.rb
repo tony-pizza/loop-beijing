@@ -4,6 +4,7 @@ class Web < Sinatra::Application
   set :views, settings.root + '/views/web'
   set :public_dir, settings.root + '/public'
   set :slim, pretty: settings.development?
+  set :static_cache_control, [:public, max_age: 300]
 
   paths root:           '/',
         buses:          '/buses',

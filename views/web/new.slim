@@ -1,8 +1,9 @@
 #page.container
   .row
     .col.whole
-      h1 Upload a recording
-      h1 上传录音
+      h1
+        .chinese 上传录音
+        .english Upload a recording
   .row
     .col.half
       form#upload-form action=path_to(:recordings) enctype="multipart/form-data" method="POST"

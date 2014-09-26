@@ -22,8 +22,13 @@ section#hero
         #hero-actions.center-text
           #hero-listen
             form#listen-form
-              label for="bus-input" Enter your bus # 输入您的公交线号
-              input#bus-input type="number" name="bus" min="1" max="999" value="909"
+              #bus-input-prompt
+                label for="bus-input"
+                  span.chinese 输入您的公交线号:
+                  br/
+                  span.english Enter your bus #:
+              #bus-input-holder
+                input#bus-input type="number" name="bus" min="1" max="999" value="909"
               br/
               button#listen-btn.btn type="submit" &#x27A5; Listen
           
@@ -31,7 +36,7 @@ section#hero
             a href=path_to(:buses) See all buses
             |  or 
             a href=path_to(:new_recording) upload a recording here
-            | . Or call (010)8405 4200 to record via phone.
+            | . Or call (010) 8405 4200 to record via phone.
             /button.btn Record your own
 
 /section#featured
