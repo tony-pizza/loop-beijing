@@ -283,6 +283,10 @@ footer {
   border: 5px solid #fff200;
 }
 
+#landing footer a {
+  color: #fff200;
+}
+
 .recording {
   margin-bottom: 30px;
   text-align: center;
