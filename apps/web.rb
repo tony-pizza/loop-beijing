@@ -6,7 +6,8 @@ class Web < Sinatra::Application
   set :slim, pretty: settings.development?
 
   paths root:           '/',
-        bus:            '/bus/:line',
+        buses:          '/buses',
+        bus:            '/buses/:line',
         recordings:     '/recordings',
         new_recording:  '/recordings/new'
 
@@ -14,6 +15,11 @@ class Web < Sinatra::Application
     @body_id = 'landing'
     @buses = Recording.reorder(nil).uniq.pluck(:bus)
     slim :index
+  end
+
+  get :buses do
+    @buses_with_recordings = Recording.reorder(nil).uniq.pluck(:bus)
+    slim :buses
   end
 
   get :bus do

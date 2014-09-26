@@ -1,0 +1,15 @@
+#page.container
+  .row
+    .col.whole
+      h1 All buses
+      h4 Legend:
+      .legend-key.legend-key-featured Featured bus
+      .legend-key Bus with recordings
+      .legend-key.legend-key-no-recordings No recordings yet
+  hr
+  .row
+    .col.whole
+      ul#bus-list
+        - 1.upto(999) do |bus|
+          li
+            a.bus-link href=path_to(:bus).with(bus) class=('bus-link-no-recordings' unless @buses_with_recordings.include?(bus)) = bus

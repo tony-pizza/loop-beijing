@@ -28,8 +28,9 @@ section#hero
               button#listen-btn.btn type="submit" &#x27A5; Listen
           
           #hero-record
-            | Or 
-            a href=path_to(:new_recording) Record your own
+            a href=path_to(:buses) See all buses
+            |  or 
+            a href=path_to(:new_recording) make a recording
             | .
             /button.btn Record your own
 
@@ -67,7 +68,7 @@ javascript:
   (function () {
     document.getElementById('listen-form').addEventListener('submit', function (e) {
       e.preventDefault();
-      window.location.href = '/bus/' + document.getElementById('bus-input').value;
+      window.location.href = '/buses/' + document.getElementById('bus-input').value;
     });
   })();
 
