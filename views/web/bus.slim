@@ -2,6 +2,7 @@
   .row
     .col.whole
       h1 You are listening to Bus #{params[:line]}
+      h1 您在收听公交线 #{params[:line]} 广播
   .row
     .col.whole
       - if @recordings.any?
@@ -13,6 +14,7 @@
       - else
         p.center-text
           | There are no recordings for this bus yet.
+          | 这个公交线暂时没有录音。
           br/
           br/
           a.btn.btn-lg href="#{path_to(:new_recording)}?bus=#{params[:line]}"Record your own
