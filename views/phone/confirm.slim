@@ -2,15 +2,11 @@ doctype xml
 Response
   Gather method="POST" action=path_to(:confirm) numDigits="1" timeout="2"
     / You entered {params[:line]}
-    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/confirmchinyouentered.wav
-    - params[:line].split(//).each do |num|
-      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numchin#{num}.wav
-
-    / You entered {params[:line]}
-    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/confirmengyouentered.wav
-    - params[:line].split(//).each do |num|
-      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numeng#{num}.wav
+    - ['chin', 'eng'].each do |lang|
+      Play = voice_url "confirm#{lang}youentered"
+      - params[:line].split(//).each do |num|
+        Play = voice_url "num#{lang}#{num}"
 
     / If this is incorrect
-    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/confirmincorrectback.wav
+    Play = voice_url 'confirmincorrectback'
   Redirect method="GET" = path_to(:line).with(params[:line])

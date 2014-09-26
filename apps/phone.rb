@@ -24,6 +24,12 @@ class Phone < Sinatra::Application
     content_type :xml
   end
 
+  helpers do
+    def voice_url(name)
+      "#{ENV['S3_BASE_URL']}/phone_menu/#{name}.wav"
+    end
+  end
+
   # main menu
   get :main do
     slim :menu
