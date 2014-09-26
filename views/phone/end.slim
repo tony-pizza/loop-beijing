@@ -1,4 +1,8 @@
 doctype xml
 Response
-  Say There are no more recordings for bus #{params[:line]}
+  / There are no more recordings for bus #{params[:line]}
+  - ['chin', 'eng'].each do |lang|
+    Play = voice_url "end#{lang}nomorerec"
+    - params[:line].split(//).each do |num|
+      Play = voice_url "num#{lang}#{num}"
   Redirect method="GET" = path_to(:main)
