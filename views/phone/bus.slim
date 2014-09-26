@@ -2,10 +2,35 @@ doctype xml
 Response
   Gather method="POST" action=path_to(:line).with(params[:line]) numDigits="1"
     - if has_recordings
-      Say Playing recordings for bus number #{params[:line]}
-      Say To skip to the next recording press #{NEXT_BUTTON}
-      Say To go back to the previous recording press #{PREV_BUTTON}
+
+      / You are listening to
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/buschinyouarelisteningto.wav
+      - params[:line].split(//).each do |num|
+        Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numchin#{num}.wav
+
+      / You are listening to
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/busengyouarelisteningto.wav
+      - params[:line].split(//).each do |num|
+        Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numeng#{num}.wav
+
+      / To skip to the next recording press #{NEXT_BUTTON}
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/busskiptrack.wav
+
+      / To go back to the previous recording press #{PREV_BUTTON}
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/busprevtrack.wav
+
     - else
-      Say Bus number #{params[:line]} has no recordings yet
-    Say To record your own for this bus press #{RECORD_BUTTON}
+      / Bus number #{params[:line]} has no recordings yet
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/buschinnorecord.wav
+      - params[:line].split(//).each do |num|
+        Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numchin#{num}.wav
+
+      / Bus number #{params[:line]} has no recordings yet
+      Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/busengnorecord.wav
+      - params[:line].split(//).each do |num|
+        Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/numeng#{num}.wav
+
+    / To record your own for this bus press #{RECORD_BUTTON}
+    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/busleaverecord.wav
+
   Redirect method="GET" = has_recordings ? path_to(:first).with(params[:line]) : path_to(:line).with(params[:line])

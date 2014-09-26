@@ -2,7 +2,7 @@ doctype xml
 Response
   Gather method="POST" action=path_to(:main) numDigits="3" timeout="10" finishOnKey="#"
     / Welcome, enter your bus number
-    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/Welcome.wav
+    Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/menu-welcometoloopenternumber.wav
   / Sorry, didn't get that
-  Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/invalidnumber.wav
+  Play https://s3-ap-northeast-1.amazonaws.com/loop-beijing/phone-menu/menu-sorrydidntgetthat.wav
   Redirect method="GET" = path_to(:main)

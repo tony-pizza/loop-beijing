@@ -15,10 +15,10 @@ class Phone < Sinatra::Application
         end:     '/phone/bus/:line/end',
         create:  '/phone/bus/:line/recordings'
 
-  RECORD_BUTTON = '9'
+  RECORD_BUTTON = '6'
   HOME_BUTTON = '0'
-  NEXT_BUTTON = '3'
-  PREV_BUTTON = '1'
+  NEXT_BUTTON = '5'
+  PREV_BUTTON = '7'
 
   before do
     content_type :xml
