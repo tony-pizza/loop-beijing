@@ -2,19 +2,20 @@
   .row
     .col.whole
       h1 Upload a recording
+      h1 上传录音
   .row
     .col.half
       form#upload-form action=path_to(:recordings) enctype="multipart/form-data" method="POST"
        
         .form-control
-          label for="recording_bus" Choose your bus:
+          label for="recording_bus" Choose your bus 输入线号:
           select#recording_bus name="recording[bus]"
             - 1.upto(999) do |bus|
               option value=bus selected=(params[:bus] == bus.to_s) = bus
         .form-control
           input type="file" name="file" accept="audio/*" capture=true
         .form-control
-          button.btn type="submit" Submit
+          button.btn type="submit" Submit 上传
 
 script src="//code.jquery.com/jquery-1.11.1.min.js"
 script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"
