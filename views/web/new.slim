@@ -1,15 +1,22 @@
-.container
-  h1 Upload audio
+#page.container
+  .row
+    .col.whole
+      h1 Upload a recording
+  .row
+    .col.half
+      form#upload-form action=path_to(:recordings) enctype="multipart/form-data" method="POST"
+       
+        .form-control
+          label for="recording_bus" Choose your bus:
+          select#recording_bus name="recording[bus]"
+            - 1.upto(999) do |bus|
+              option value=bus selected=(params[:bus] == bus.to_s) = bus
+        .form-control
+          input type="file" name="file" accept="audio/*" capture=true
+        .form-control
+          button.btn type="submit" Submit
 
-  form#upload-form action="/upload" enctype="multipart/form-data" method="POST"
-   
-    label for="recording_bus" Bus:
-    select#recording_bus name="recording[bus]"
-      - 1.upto(999) do |bus|
-        option value=bus = bus
-    input type="file" name="file"
-
-script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"
+script src="//code.jquery.com/jquery-1.11.1.min.js"
 script src="//assets.transloadit.com/js/jquery.transloadit2-v2-latest.js"
 
 javascript:
@@ -17,8 +24,8 @@ javascript:
     // We reference our html form here
     $('#upload-form').transloadit({
       wait: true,
-      triggerUploadOnFileSelection: true,
-      signature: '#{signature}',
-      params: #{{transloadit_params}}
+      triggerUploadOnFileSelection: false,
+      signature: '#{@signature}',
+      params: #{{@transloadit_params}}
     });
   });

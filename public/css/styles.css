@@ -52,7 +52,6 @@ table {
 body {
 	background: url(/images/bg.jpg) no-repeat fixed;
 	background-size: cover;
-  color: #fff;
   font-family: Helvetica, Arial, "Microsoft Yahei", "微软雅黑", 黑体, SimHei, "华文黑体", STHeiti, STXihei, "华文细黑", sans-serif;
 }
 
@@ -71,7 +70,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.6em;
+  font-size: 1.8em;
   font-weight: 100;
 }
 
@@ -101,8 +100,66 @@ footer:after,
   clear: both;
 }
 
+.btn {
+  background: #54A8DF;
+  border: 3px solid #FFF200;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 7px 14px;
+  text-decoration: none;
+}
+
+.btn-lg {
+  font-size: 1.1em;
+  padding: 9px 18px;
+}
+
+.btn:hover {
+  background: #6EC2F9;
+}
+
+hr {
+  border: none;
+  border-bottom: 3px dashed #fff200;
+}
+
 .hide {
   display: none !important;
+}
+
+.form-control {
+  padding: 10px;
+}
+
+#page {
+  background: #fff;
+  margin-top: 30px;
+  margin-bottom: 60px;
+  padding: 30px 0 40px;
+}
+
+#page h1 {
+  border-top: 5px solid #fff200;
+  border-bottom: 5px solid #fff200;
+  display: inline-block;
+  font-weight: 400;
+  padding: 0 10px;
+}
+
+#landing {
+  color: #fff;
+}
+
+#landing a {
+  color: #54A8DF;
+  text-decoration: none;
+}
+
+#landing a:hover {
+  /* color: #87DBFF; */
+  color: #fff200;
+  text-decoration: none;
 }
 
 #hero {
@@ -113,6 +170,10 @@ footer:after,
   text-align: center;
 }
 
+#hero-feature {
+  margin-bottom: 30px;
+}
+
 #hero-feature p {
   font-size: 1.5em;
   font-weight: 100;
@@ -120,7 +181,6 @@ footer:after,
 }
 
 #hero-feature .chinese {
-  /* font-size: 1.3em; */
   font-weight: 600;
   font-style: italic;
 }
@@ -129,7 +189,20 @@ footer:after,
 }
 
 #hero-actions {
-  margin-top: 40px;
+  margin-top: 30px;
+}
+
+#hero-listen {
+  font-size: 2em;
+  font-weight: 600;
+  line-height: 200%;
+  padding: 10px 0;
+}
+
+#hero-record {
+  margin-top: 20px;
+  font-size: 1.1em;
+  font-weight: 100;
 }
 
 #hero-nav {
@@ -152,6 +225,19 @@ footer:after,
   color: #9ad1e9;
 }
 
+#bus-input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #fff200;
+  color: #fff200;
+  font-size: 1em;
+  font-weight: 100;
+  margin: 0 6px;
+  padding: 4px 0px 4px 8px;
+  outline: none;
+  width: 85px;
+}
+
 #featured {
 	background-color: #1c566b;
   color: #333;
@@ -165,6 +251,7 @@ footer:after,
 
 footer {
 	background: url(/images/footer-bg.png) 50% 50%;
+  border: 5px solid #fff200;
 }
 
 img.img-responsive {
@@ -261,7 +348,7 @@ img.img-responsive {
 
   .col {
     float: left;
-    padding: 20px 0;
+    padding: 20px 20px;
     max-width: 100%;
   }
 
@@ -281,120 +368,8 @@ img.img-responsive {
   .offset-third {
     margin-left: 0;
   }
+
+  .hidden-sm {
+    display: none;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-.right-main ul {text-align: left; font-size: 16px; list-style-type: none;}
-.right-main li {text-align:left; padding:3px; }
-
-
-.left-main a {
-  color:#0099FF;
-  font-weight:bold;
-	text-decoration: none;
-	-webkit-transition: color 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
-     -moz-transition: color 0.1s;
-      -ms-transition: color 0.1s;
-       -o-transition: color 0.1s;
-          transition: color 0.1s cubic-bezier(0.075, 0.82, 0.165, 1); 
-}
-	
-.right-main a:hover { color: #FFFF00; border-bottom: 1px solid; border-top: 1px solid}
-
-.right-main
-{
-position: relative;
-display:block; 
-padding-top:20px; 
-font:inherit;
-width: 350px;
-font-weight:normal;
-float:right;
-
-}
-
-.right-main h1
-{
-	font-size:24px;
-}	
-
-.right-main h2
-{
-	font-size:24px;
-	font-weight:normal;
-}	
-
-.right-main span
-{
-	display:block;
-}
-
-.right-main p
-{
-	font-size:18px;
-	margin-top:8%;
-}
-
-.right-video
-{
-position: relative;
-    width: 80%;
-    background: #4679BD;
-    z-index:9999;
-
-}
-.right-video:before{
-    content: "";
-    display: block;
-    padding-top: 50%;
-}
-
-.choicetext
-{
-position: absolute;
-display:block; 
-top:65%; 
-left:50%; 
-z-index:9999;
-font-weight: normal;
-width: 40%;
-}
-
-.choicetext h2
-{
-	font-size:24px;
-	font-weight:normal;
-}
-
-
-.selectbutton
-{
-position:absolute;
-border: 3px solid #FFFF00;
-font-size: 16px;
-color: #fff;
-background: #0099FF;
-padding: 7px;
-margin: 0px 9px 0px 9px;
-}
-
-.recbutton {
-  padding: 5px 5px 10px 25px;
-    color:#fff;
-    font-size:16px;
-    padding:5px 5px 5px 24px;
-  border: 3px solid #FFFF00;
-  text-decoration:none;
-  background: #0099FF url(rec.png) no-repeat scroll 2px center;
-}
-
-

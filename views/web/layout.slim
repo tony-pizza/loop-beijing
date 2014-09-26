@@ -1,8 +1,11 @@
 doctype html
 html
-head
-  meta charset="UTF-8"
-  title Transloadit Demo
-  link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-body
-  == yield
+  head
+    title LOOP Beijing
+    meta charset="utf-8" /
+    meta content="width=device-width, initial-scale=1" name="viewport" 
+    meta content=("Interactive and participatory audio installations on Beijing public buses.") name="description" /
+    meta content="loop, beijing, loop beijing, buses, beijing design week, audio installation" name="keywords" /
+    link href="/css/styles.css" media="all" rel="stylesheet" type="text/css" /
+  body id=@body_id
+    == yield
