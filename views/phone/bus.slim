@@ -9,6 +9,9 @@ Response
         - params[:line].split(//).each do |num|
           Play = voice_url "num#{lang}#{num}"
 
+      / Press zero to go back
+      Play = voice_url 'presszero'
+
       / To skip to the next recording press #{NEXT_BUTTON}
       Play = voice_url 'busskiptrack'
 
