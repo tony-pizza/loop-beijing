@@ -2,7 +2,7 @@ doctype xml
 Response
   Gather method="POST" action=path_to(:main) numDigits="3" timeout="10" finishOnKey="#"
     / Welcome, enter your bus number
-    Play = voice_url 'menu-welcometoloopenternumber1'
+    Play = voice_url 'menu-welcometoloopenternumber2'
   / Sorry, didn't get that
   Play = voice_url 'menu-sorrydidntgetthat'
   Redirect method="GET" = path_to(:main)
