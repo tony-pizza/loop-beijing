@@ -2,6 +2,6 @@ doctype xml
 Response
   / Record your message after the beep, To end your recording press *
   Play = voice_url 'newrecordend'
-  Record action=path_to(:create).with(params[:line]) method="POST" maxLength="20" playBeep=true finishOnKey="*" trim="do-not-trim"
+  Record action=path_to(:create).with(params[:line]) method="POST" maxLength="20" playBeep="true" finishOnKey="*" trim="do-not-trim"
   / No recording received
   Play = voice_url 'newnorecreceived'
