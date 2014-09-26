@@ -1,6 +1,6 @@
 doctype xml
 Response
-  Gather method="POST" action=path_to(:confirm).with(params[:line]) numDigits="1" timeout="2"
+  Gather method="POST" action=path_to(:confirm).with(params[:line]) numDigits="1" timeout="1"
     / You entered {params[:line]}
     - ['chin', 'eng'].each do |lang|
       Play = voice_url "confirm#{lang}youentered"
