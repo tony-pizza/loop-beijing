@@ -147,12 +147,12 @@ hr {
   padding: 0 10px;
 }
 
-.container .nav {
+#page .nav {
   margin-right: 20px;
   text-align: right;
 }
 
-.container .nav li {
+#page .nav li {
   display: inline-block;
   list-style-type: none;
   padding: 0 10px;
