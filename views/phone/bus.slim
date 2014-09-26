@@ -1,6 +1,6 @@
 doctype xml
 Response
-  Gather method="POST" action=path_to(:line).with(params[:line]) numDigits="1"
+  Gather method="POST" action=path_to(:line).with(params[:line]) numDigits="1" timeout="1"
     - if has_recordings
 
       / You are listening to
