@@ -12,6 +12,8 @@ class Web < Sinatra::Application
         recordings:     '/recordings',
         new_recording:  '/recordings/new'
 
+  FEATURES = YAML.load(File.read(settings.root + '/config/featured.yml'))
+
   get /^\/(index(\.html?))?$/ do
     @body_id = 'landing'
     @buses = Recording.reorder(nil).uniq.pluck(:bus)

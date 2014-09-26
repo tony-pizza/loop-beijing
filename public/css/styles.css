@@ -321,6 +321,14 @@ footer {
   background: #54A8DF;
 }
 
+.bus-link.bus-link-featured:hover {
+  color: #fff200;
+}
+
+.bio.english {
+  font-size: 0.8em;
+}
+
 img.img-responsive {
   max-width: 100%;
 }

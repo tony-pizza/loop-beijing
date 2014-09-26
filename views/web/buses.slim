@@ -12,4 +12,4 @@
       ul#bus-list
         - 1.upto(999) do |bus|
           li
-            a.bus-link href=path_to(:bus).with(bus) class=('bus-link-no-recordings' unless @buses_with_recordings.include?(bus)) = bus
+            a.bus-link href=path_to(:bus).with(bus) class=(if FEATURES.keys.include?(bus) then 'bus-link-featured' elsif !@buses_with_recordings.include?(bus) then 'bus-link-no-recordings' end) = bus

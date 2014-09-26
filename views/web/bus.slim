@@ -4,6 +4,19 @@
       h1
         .chinese 您在收听公交线 #{params[:line]} 广播
         .english You are listening to Bus #{params[:line]}
+  - if info = FEATURES[params[:line].to_i]
+    .row
+      .col.whole
+        h3 Featured Artist:
+        h2 #{info['artist_name']}
+      .col.third
+        p = info['video_url']
+      - if info['bio_chin']
+        .col class=(info['bio_eng'].blank? ? 'two-thirds' : 'third')
+          p.bio.chinese == info['bio_chin']
+      - if info['bio_eng']
+        .col class=(info['bio_chin'].blank? ? 'two-thirds' : 'third')
+          p.bio.english == info['bio_eng']
   .row
     .col.whole
       - if @recordings.any?
