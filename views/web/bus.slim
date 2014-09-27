@@ -18,6 +18,8 @@
       - if info['bio_eng']
         .col class=(info['bio_chin'].blank? ? 'two-thirds' : 'third')
           p.bio.english == info['bio_eng']
+  .padded
+    hr
   - if @recordings.any?
     .row
       .col.half
