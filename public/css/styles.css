@@ -274,12 +274,17 @@ h1 .english {
 }
 
 #featured {
-	background-color: #1c566b;
+	background: #fcf9d6;
   color: #333;
 }
 
+#featured embed {
+  width: 100%;
+  height: 240;
+}
+
 #about {
-	background-color: #1c566b;
+	background: #1c566b;
   color: #fff;
   font-weight: 100;
 }

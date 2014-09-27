@@ -5,8 +5,9 @@ section#hero
         img.img-responsive src="/images/logo.png" /
         ul#hero-nav
           li
-            a href="#about"  About 关于
-          /li <a href="#featured">Featured</a>
+            a href="#about" About 关于
+          li
+            a href="#featured" Featured
       #right-main.col.two-thirds
         #hero-feature.hidden-sm
           p
@@ -46,20 +47,30 @@ section#hero
               .english Or call (010) 8405 4200 to record via phone.
 
 section#featured
-	.container
-		.row
-			.col.third
-			<embed src="http://www.tudou.com/v/HmDfi0Rc0PY/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
-			p Luka Yang and Rafael Lisboa for
-			a href="buses/586" 586 Bus
-			.col.third
-			<embed src="http://www.tudou.com/v/5fsGbeSjErM/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
-			p Simon Frank for
-			a href="buses/731"
-			.col.third
-			<embed src="http://www.tudou.com/v/3vCFYZkcNqY/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
-			p Peter Cusack for
-			a href="buses/109"
+  .container
+    .row.center-text
+      h2
+        span.chinese 关于
+        br/
+        span.english Featured
+    .row
+      .col.third
+        <embed src="http://www.tudou.com/v/HmDfi0Rc0PY/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
+        p
+          | Luka Yang and Rafael Lisboa for 
+          a href=path_to(:bus).with(586) 586 Bus
+
+      .col.third
+        <embed src="http://www.tudou.com/v/5fsGbeSjErM/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
+        p
+          | Simon Frank for 
+          a href=path_to(:bus).with(731) 731 Bus
+
+      .col.third
+        <embed src="http://www.tudou.com/v/3vCFYZkcNqY/&bid=05&rpid=435816999&resourceId=435816999_05_05_99/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="320" height="240"></embed>
+        p
+          | Peter Cusack for 
+          a href=path_to(:bus).with(109) 109 Bus
 			
 section#about
   .container
