@@ -15,6 +15,7 @@ gem 'rack-timeout'
 
 group :production do
   gem "sentry-raven", git: 'https://github.com/getsentry/raven-ruby.git'
+  gem 'newrelic_rpm'
 end
 
 group :development do

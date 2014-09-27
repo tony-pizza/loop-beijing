@@ -46,6 +46,7 @@ GEM
     method_source (0.8.2)
     minitest (5.4.1)
     multipart-post (2.0.0)
+    newrelic_rpm (3.9.4.245)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -106,6 +107,7 @@ DEPENDENCIES
   activerecord
   database_cleaner
   dotenv
+  newrelic_rpm
   pg
   pry
   rack-test
