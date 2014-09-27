@@ -2,6 +2,7 @@ require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/snap'
 require 'rack-timeout'
+require 'newrelic_rpm'
 require 'slim'
 
 require_relative 'lib/number_signer'
