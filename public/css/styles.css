@@ -186,7 +186,7 @@ hr {
 }
 
 #hero-feature p {
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: 100;
   margin-top: 0;
 }
@@ -211,7 +211,7 @@ h1 .english {
 }
 
 #hero-listen {
-  font-size: 2em;
+  font-size: 1.8em;
   font-weight: 600;
   line-height: 1em;
   padding: 10px 0;
@@ -244,9 +244,9 @@ h1 .english {
 }
 
 #hero-nav li {
-  display: inline;
+  display: inline-block;
   list-style-type: none;
-  padding: 0 10px;
+  padding: 5px 10px;
 }
 
 #hero-nav a {
@@ -278,7 +278,7 @@ h1 .english {
   color: #333;
 }
 
-#featured embed {
+.third embed {
   width: 100%;
   height: 240;
 }
