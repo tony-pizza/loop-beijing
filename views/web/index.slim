@@ -33,16 +33,20 @@ section#hero
               button#listen-btn.btn type="submit" &#x27A5; Listen
           
           #hero-record
-            a href=path_to(:buses) See all buses
-            |  or 
-            a href=path_to(:new_recording) upload a recording here
-            | . Or call (010) 8405 4200 to record via phone.
-            br/
-            a href=path_to(:buses) 查看全部公交线
-            |  或 
-            a href=path_to(:new_recording) 上传自已的录音
-            | . 或者拨打 (010) 8405 4200 用电话发布录音.
-            /button.btn Record your own
+            .chinese
+              a href=path_to(:buses) 查看全部公交线
+              |  或 
+              a href=path_to(:new_recording) 上传自已的录音
+              | .
+            .english
+              a href=path_to(:buses) See all buses
+              |  or 
+              a href=path_to(:new_recording) upload a recording here
+              | .
+
+            #hero-call
+              .chinese 或者拨打 (010) 8405 4200 用电话发布录音.
+              .english Or call (010) 8405 4200 to record via phone.
 
 /section#featured
   .container
@@ -56,8 +60,10 @@ section#hero
 section#about
   .container
     .row.center-text
-      h2 About
-      h2 关于
+      h2
+        span.chinese 关于
+        br/
+        span.english About
     .row
       .col.half
         p LOOP 是北京公交公开广播。在日常城市生活中，LOOP北京将现有的公共巴士交通基础设施作为一个重要的空间用，并将其扩大成为一个互动的音影视觉的安装和交流的游牧点。
