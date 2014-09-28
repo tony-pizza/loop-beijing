@@ -39,6 +39,7 @@ class Web < Sinatra::Application
   end
 
   get :buses do
+    @title = 'Buses'
     @buses_with_recordings = Recording.reorder(nil).uniq.pluck(:bus)
     slim :buses
   end
@@ -47,6 +48,7 @@ class Web < Sinatra::Application
     if params[:line] != params[:line].to_i.to_s
       redirect path_to(:bus).with(params[:line].to_i)
     end
+    @title = "Bus #{params[:line]}"
     @recordings = Recording.where(bus: params[:line])
     slim :bus
   end
@@ -65,6 +67,7 @@ class Web < Sinatra::Application
       ENV['TRANSLOADIT_SECRET_KEY'],
       @transloadit_params)
 
+    @title = 'Upload'
     slim :new
   end
 
