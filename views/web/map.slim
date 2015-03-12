@@ -1,0 +1,152 @@
+header
+  a#venues-btn href="#" 地点 &bull; Venues
+  a#routes-btn href="#" 路线 &bull; Routes
+
+ul#venues.hide
+ul#routes.hide
+
+#map
+
+#logos
+  a href="http://2015.juefestival.com/"
+    img src="/images/juelogo.svg"
+  img src="/images/looplogo.svg"
+
+button#current-location-btn
+  img src="/images/getlocation.svg"
+a#music-btn href="https://loopbeijing.bandcamp.com/"
+  img src="/images/music.svg"
+
+javascript:
+
+  (function(){
+
+  var List = function (name) {
+    var self = this;
+    this.btn = document.getElementById(name + '-btn');
+    this.list = document.getElementById(name);
+    this.showing = false;
+
+    this.show = function () {
+      if (this.showing) return;
+      var delay = false;
+      List.lists.forEach(function (list) {
+        delay = delay || list.showing;
+        list.hide();
+      });
+      var show = function () {
+        self.list.className = 'animated slideInDown';
+        self.showing = true;
+      };
+      if (delay) {
+        setTimeout(show, 200);
+      } else {
+        show();
+      }
+    };
+
+    this.hide = function () {
+      if (!this.showing) return;
+      this.list.className = 'animated slideOutUp';
+      this.showing = false;
+    };
+
+    this.toggle = function () {
+      if (this.showing) {
+        this.hide();
+      } else {
+        this.show();
+      }
+    };
+
+    this.append = function (el) {
+      var li = document.createElement('li');
+      li.appendChild(el);
+      this.list.appendChild(li);
+    };
+
+    this.btn.onclick = function () { self.toggle(); };
+
+    if (!List.lists) List.lists = [];
+    List.lists.push(this);
+
+    return this;
+  };
+
+  var venuesList = new List('venues');
+  var routesList = new List('routes');
+  var lists = [venuesList, routesList];
+
+  L.mapbox.accessToken = 'pk.eyJ1IjoibG9vcGp1ZSIsImEiOiJNelQxMlgwIn0.cfieLsI_D1tVp5s_u_Ckjw';
+  var map = L.mapbox.map('map', 'loopjue.l1gd8l2m', { zoomControl: false, attributionControl: false })
+    .setView([39.918483, 116.410509], 12);
+
+  map.featureLayer.on('ready', function () {
+    // map.fitBounds(map.featureLayer.getBounds());
+    map.featureLayer.eachLayer(function (marker) {
+        var a = document.createElement('a');
+        a.setAttribute('href', '#');
+        a.innerHTML = marker.feature.properties.title;
+        a.onclick = function () {
+          routesList.hide();
+          venuesList.hide();
+          if (marker.getLatLng) {
+            map.panTo(marker.getLatLng());
+          } else if (marker.getBounds) {
+            map.fitBounds(marker.getBounds());
+          }
+          marker.openPopup();
+        };
+        if (marker.feature.properties['marker-color']) {
+          venuesList.append(a);
+        } else {
+          a.style.backgroundColor = marker.feature.properties.stroke;
+          routesList.append(a);
+        }
+    });
+  });
+
+  var geolocate = document.getElementById('current-location-btn');
+  var currentLocationLayer = L.mapbox.featureLayer().addTo(map);
+
+  // This uses the HTML5 geolocation API, which is available on
+  // most mobile browsers and modern browsers, but not in Internet Explorer
+  //
+  // See this chart of compatibility for details:
+  // http://caniuse.com/#feat=geolocation
+  if (!navigator.geolocation) {
+      alert('Geolocation is not available');
+  } else {
+      geolocate.onclick = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          map.locate();
+      };
+  }
+
+  // Once we've got a position, zoom and center the map
+  // on it, and add a single marker.
+  map.on('locationfound', function(e) {
+      map.fitBounds(e.bounds);
+
+      currentLocationLayer.setGeoJSON({
+          type: 'Feature',
+          geometry: {
+              type: 'Point',
+              coordinates: [e.latlng.lng, e.latlng.lat]
+          },
+          properties: {
+              'title': 'Me',
+              'marker-color': '#f15757',
+              'marker-symbol': 'star'
+          }
+      });
+  });
+
+  // If the user chooses not to allow their location
+  // to be shared, display an error message.
+  map.on('locationerror', function() {
+      alert('Position could not be found');
+  });
+
+  })();

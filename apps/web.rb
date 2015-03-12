@@ -10,7 +10,8 @@ class Web < Sinatra::Application
         buses:          '/buses',
         bus:            '/buses/:line',
         recordings:     '/recordings',
-        new_recording:  '/recordings/new'
+        new_recording:  '/recordings/new',
+        map:          '/map'
 
   FEATURES = YAML.load(File.read(settings.root + '/config/featured.yml'))
 
@@ -33,9 +34,11 @@ class Web < Sinatra::Application
   end
 
   get /^\/(index(\.html?))?$/ do
-    @body_id = 'landing'
-    @buses = Recording.reorder(nil).uniq.pluck(:bus)
     slim :index
+  end
+
+  get :map do
+    slim :map
   end
 
   get :buses do

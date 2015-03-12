@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="75px" height="75px" viewBox="0 0 75 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>getlocation</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-128.000000, -117.000000)" fill="#FFFFFF">
+            <path d="M165.037,117 C144.615,117 128,133.615 128,154.037 C128,174.459 144.615,191.074 165.037,191.074 C185.459,191.074 202.074,174.459 202.074,154.037 C202.074,133.615 185.459,117 165.037,117 L165.037,117 Z M168.024,184.954 L168.024,174.946 L162.051,174.946 L162.051,184.954 C147.302,183.54 135.534,171.773 134.121,157.024 L144.13,157.024 L144.13,151.051 L134.121,151.051 C135.535,136.302 147.302,124.535 162.051,123.121 L162.051,133.129 L168.024,133.129 L168.024,123.121 C182.773,124.534 194.54,136.301 195.954,151.051 L185.945,151.051 L185.945,157.024 L195.954,157.024 C194.54,171.773 182.773,183.54 168.024,184.954 L168.024,184.954 Z" id="getlocation" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
