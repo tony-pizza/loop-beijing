@@ -49,28 +49,12 @@ table {
 }
 /* -- end reset -- */
 
-/*
- * let COLOR_YELLOW = UIColor(rgb: 0xfff200)
- * let COLOR_DARK_MUTED_BLUE = UIColor(rgb: 0x213b44)
- * let COLOR_DARK_BLUE = UIColor(rgb: 0x212d43)
- * let COLOR_LIGHT_BLUE = UIColor(rgb: 0x48b6e8)
- * let COLOR_BLUE = UIColor(rgb: 0x348cc2)
- * let COLOR_RED = UIColor(rgb: 0xf15757)
- *
- */
-
 body {
-  background: #213b44;
+  background: url(/2014/images/bg.jpg) no-repeat fixed;
+  background-size: cover;
   font-family: Helvetica, Arial, "Microsoft Yahei", "微软雅黑", 黑体, SimHei, "华文黑体", STHeiti, STXihei, "华文细黑", sans-serif;
 }
 
-#map {
-  background-color: #213b44 !important;
-}
-
-
-
-/*
 body, li, a, p, h1, h2, h3, h4, h5 {
   line-height: 1.5em;
   letter-spacing: 0.03em;
@@ -184,6 +168,7 @@ hr {
 }
 
 #landing a:hover {
+  /* color: #87DBFF; */
   color: #fff200;
   text-decoration: none;
 }
@@ -289,7 +274,7 @@ h1 .english {
 }
 
 #featured {
-	background: #fcf9d6;
+  background: #fcf9d6;
   color: #333;
 }
 
@@ -299,13 +284,13 @@ h1 .english {
 }
 
 #about {
-	background: #1c566b;
+  background: #1c566b;
   color: #fff;
   font-weight: 100;
 }
 
 footer {
-	background: url(/images/footer-bg.png) 50% 50%;
+  background: url(/2014/images/footer-bg.png) 50% 50%;
   border: 5px solid #fff200;
 }
 
@@ -337,7 +322,7 @@ footer {
 
 .legend-key {
   color: #fff;
-	background: #1c566b;
+  background: #1c566b;
   font-size: 0.8em;
   font-weight: 100;
   padding: 5px 10px;
@@ -347,7 +332,7 @@ footer {
 
 .bus-link {
   color: #fff;
-	background: #1c566b;
+  background: #1c566b;
   display: block;
   font-size: 1.3em;
   font-weight: 100;
@@ -392,8 +377,8 @@ img.img-responsive {
 /*== grid ==*/
 
 .container {
-	width: 960px;
-	margin: 0 auto;
+  width: 960px;
+  margin: 0 auto;
 }
 
 .row {

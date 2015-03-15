@@ -1,17 +1,17 @@
-class Web < Sinatra::Application
+module Web; end
+class Web::V1 < Sinatra::Application
 
-  set :app_file, settings.root + '/../app.rb'
-  set :views, settings.root + '/views/web'
+  set :app_file, settings.root + '/../../app.rb'
+  set :views, settings.root + '/views/web/v1'
   set :public_dir, settings.root + '/public'
   set :slim, pretty: settings.development?
   set :static_cache_control, [:public, max_age: 300]
 
-  paths root:           '/',
-        buses:          '/buses',
-        bus:            '/buses/:line',
-        recordings:     '/recordings',
-        new_recording:  '/recordings/new',
-        map:          '/map'
+  paths root:           '/2014',
+        buses:          '/2014/buses',
+        bus:            '/2014/buses/:line',
+        recordings:     '/2014/recordings',
+        new_recording:  '/2014/recordings/new'
 
   FEATURES = YAML.load(File.read(settings.root + '/config/featured.yml'))
 
@@ -33,12 +33,10 @@ class Web < Sinatra::Application
     end
   end
 
-  get /^\/(index(\.html?))?$/ do
+  get /^\/2014\/?(index(\.html?))?$/ do
+    @body_id = 'landing'
+    @buses = Recording.reorder(nil).uniq.pluck(:bus)
     slim :index
-  end
-
-  get :map do
-    slim :map
   end
 
   get :buses do
@@ -91,11 +89,11 @@ class Web < Sinatra::Application
 
 
   not_found do
-    redirect '/'
+    redirect path_to(:root)
   end
 
   error do
-    redirect '/'
+    redirect path_to(:root)
   end
 
 end

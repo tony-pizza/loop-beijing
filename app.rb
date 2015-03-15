@@ -7,7 +7,8 @@ require 'slim'
 
 require_relative 'lib/number_signer'
 require_relative 'apps/phone'
-require_relative 'apps/web'
+require_relative 'apps/web/v1'
+require_relative 'apps/web/jue'
 require_relative 'models/recording'
 
 class Loop < Sinatra::Base
@@ -25,6 +26,7 @@ class Loop < Sinatra::Base
     ActiveRecord::Base.logger.level = Logger::WARN if ActiveRecord::Base.logger
   end
 
-  use Web
+  use Web::V1
+  use Web::Jue
   use Phone
 end
