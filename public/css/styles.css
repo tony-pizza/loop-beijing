@@ -77,14 +77,14 @@ table {
   font-weight: 900; }
 
 body {
-  background: #213b44;
+  background: #111;
   font-family: Circular, Helvetica, Arial, "Microsoft Yahei", "微软雅黑", 黑体, SimHei, "华文黑体", STHeiti, STXihei, "华文细黑", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 #map {
-  background-color: #213b44 !important;
+  background-color: #111 !important;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -112,6 +112,9 @@ button:focus { outline: none; }
   border: none;
   border-radius: 30px;
   text-decoration: none;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 #current-location-btn img, #music-btn img {
@@ -131,6 +134,11 @@ button:focus { outline: none; }
   right: 70px;
 }
 
+#music-btn img {
+  vertical-align: super;
+  max-height: 100%;
+}
+
 body, li, a, p, h1, h2, h3, h4, h5 {
   line-height: 1.5em;
   letter-spacing: 0.03em;
@@ -146,6 +154,9 @@ header {
   top: 0;
   left: 0;
   right: 0;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+          box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
 header > a {
@@ -201,6 +212,42 @@ header > a {
 
 #venues li a:hover {
   background: #348cc2;
+}
+
+/* music */
+
+body#music {
+  background: #fff200;
+  color: #213b44;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
+section {
+  max-width: 700px;
+  margin: 0 auto;
+  bottom: 0;
+  padding: 14px;
+  text-align: center;
+}
+
+h1, h2 {
+  padding: 12px;
+  text-align: center;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+#map-btn {
+  position: absolute;
+  padding: 15px;
+  top: 0;
+  left: 0;
+  color: #213b44;
+  text-decoration: none;
+  font-size: 0.8em;
 }
 
 .animated {

@@ -8,10 +8,16 @@ class Web::Jue < Sinatra::Application
   set :static_cache_control, [:public, max_age: 300]
 
   paths root:           '/',
+        music:          '/music',
         map:            '/map'
 
   get /^\/(index(\.html?))?$/ do
     slim :index
+  end
+
+  get :music do
+    @body_id = 'music'
+    slim :music
   end
 
   get :map do
